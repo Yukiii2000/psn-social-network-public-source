@@ -36,7 +36,7 @@ public class PostService {
 //TODO
     public ResponseObjectService findPostByContentLike(String inputSearch){
         ResponseObjectService responseObj = new ResponseObjectService();
-        Optional<List<PostEntity>> userPostsOpt = postRepo.findByUserIdOrderByCreatedAtDesc(inputSearch);
+        Optional<List<PostEntity>> userPostsOpt = postRepo.findByContentLike(inputSearch);
         if (userPostsOpt.isEmpty()) {
             responseObj.setStatus("fail");
             responseObj.setMessage("cannot find any post match: " + inputSearch);
