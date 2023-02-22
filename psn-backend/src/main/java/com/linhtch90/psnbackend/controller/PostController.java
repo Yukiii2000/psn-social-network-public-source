@@ -51,4 +51,10 @@ public class PostController {
     public ResponseEntity<ResponseObjectService> sharePost(@RequestBody DoubleIdObjectEntity doubleId) {
         return new ResponseEntity<ResponseObjectService>(postService.updatePostByShare(doubleId), HttpStatus.OK);
     }
+
+    //TODO
+    @PostMapping("/searchpost")
+    public ResponseEntity<ResponseObjectService> searchPost(@RequestBody String inputSearch) {
+        return new ResponseEntity<ResponseObjectService>(postService.findPostByContentLike(inputSearch), HttpStatus.OK);
+    }
 }

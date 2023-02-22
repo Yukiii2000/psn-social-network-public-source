@@ -33,6 +33,24 @@ public class PostService {
         return responseObj;
     }
 
+//TODO
+    public ResponseObjectService findPostByContentLike(String inputSearch){
+        ResponseObjectService responseObj = new ResponseObjectService();
+        Optional<List<PostEntity>> userPostsOpt = postRepo.findByUserIdOrderByCreatedAtDesc(inputSearch);
+        if (userPostsOpt.isEmpty()) {
+            responseObj.setStatus("fail");
+            responseObj.setMessage("cannot find any post match: " + inputSearch);
+            responseObj.setPayload(null);
+            return responseObj;
+        } else {
+            List<PostEntity> userPosts = userPostsOpt.get();
+            responseObj.setStatus("success");
+            responseObj.setMessage("success");
+            responseObj.setPayload(userPosts);
+            return responseObj;
+        }
+    }
+
     public ResponseObjectService findPostByUserId(IdObjectEntity inputUserId) {
         ResponseObjectService responseObj = new ResponseObjectService();
         Optional<List<PostEntity>> userPostsOpt = postRepo.findByUserIdOrderByCreatedAtDesc(inputUserId.getId());
