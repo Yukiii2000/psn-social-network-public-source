@@ -20,6 +20,10 @@ function NewsFeed() {
     navigate("/newsfeed/allaccounts");
   }
 
+  function handleSearchClick(e) {
+    navigate("/newsfeed/search");
+  }
+
   function handleSignOut(e) {
     localStorage.removeItem("psnUserId");
     localStorage.removeItem("psnToken");
@@ -49,11 +53,20 @@ function NewsFeed() {
           </Row>
         </Col>
         <Col md={8}>
+          <Row>
+            <div className="d-flex justify-content-center align-items-center w-100 h-100">
+              <Button variant="success" onClick={handleClick}>
+                Find All User Accounts
+              </Button>
+            </div>
+          </Row>
+          <Row>
           <div className="d-flex justify-content-center align-items-center w-100 h-100">
-            <Button variant="success" onClick={handleClick}>
-              Find All User Accounts
-            </Button>
-          </div>
+              <Button variant="success" onClick={handleSearchClick}>
+                search
+              </Button>
+            </div>
+          </Row>
         </Col>
       </Row>
       <Row>

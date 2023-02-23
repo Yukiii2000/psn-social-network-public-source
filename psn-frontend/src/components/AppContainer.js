@@ -13,6 +13,7 @@ import Profile from "./Profile";
 import MyProfile from "./MyProfile";
 import AllAccounts from "./AllAccounts";
 import UnauthorizedPage from "./UnauthorizedPage";
+import Search from "./Search"
 
 function AppContainer() {
   return (
@@ -23,6 +24,7 @@ function AppContainer() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/newsfeed" element={<NewsFeed />}>
           <Route path="" element={<NewsFeedContent />} />
+          <Route path="search" element={<Search />} />
           <Route path="following" element={<FollowingList />} />
           <Route path="follower" element={<FollowerList />} />
           <Route path="profile" element={<Profile />} />
